@@ -1,0 +1,43 @@
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__minimap {
+  background: hsl(var(--b1));
+}
+
+.react-flow__minimap-mask {
+  fill: rgb(240, 242, 243, 0.4);
+}
+
+.react-flow__controls-button {
+  background: hsl(var(--b1));
+  color: hsl(var(--bc));
+  border: 1px solid hsl(var(--bc));
+  border-bottom: none;
+}
+.react-flow__controls-button:last-child {
+  border-bottom: 1px solid hsl(var(--bc));
+}
+
+.react-flow__controls-button:hover {
+  background: hsl(var(--bc));
+  color: hsl(var(--b1));
+}
+
+.react-flow__controls-button > svg {
+  fill: currentColor;
+}
+
+.react-flow__edge-textbg {
+  fill: hsl(var(--b1));
+}
+
+.react-flow__edge-text {
+  fill: hsl(var(--bc));
+}
+
+.react-flow__edge-path {
+  stroke: hsl(var(--bc)) !important;
+  stroke-width: 1;
+}
