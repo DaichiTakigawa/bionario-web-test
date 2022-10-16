@@ -7,6 +7,7 @@ import {
   type Connection,
   type EdgeChange,
   type NodeChange,
+  MarkerType,
 } from 'reactflow';
 import type { SimulationNodeType } from '../../models';
 import { addNodeReducer, hoverEdgeReducer } from './reducers';
@@ -33,6 +34,12 @@ export const reactFlowSlice = createSlice({
       action: PayloadAction<{ nodeType: SimulationNodeType }>
     ) => {
       addNodeReducer(state, action.payload.nodeType);
+    },
+    playSimulation: (state: State) => {
+      state.edges.forEach((e, index) => {
+        e.animated = true;
+        e.label = `${index * 100} ${index % 2 === 0 ? 'kWh' : 'kg-CO2'}`;
+      });
     },
     setIsExpand: (
       state: State,
@@ -65,6 +72,13 @@ export const reactFlowSlice = createSlice({
       action: PayloadAction<{ connection: Connection }>
     ) => {
       state.edges = addEdge(action.payload.connection, state.edges);
+      state.edges.forEach((e) => {
+        e.markerEnd = {
+          type: MarkerType.ArrowClosed,
+          width: 14,
+          height: 14,
+        };
+      });
     },
     handleMove: (
       state: State,

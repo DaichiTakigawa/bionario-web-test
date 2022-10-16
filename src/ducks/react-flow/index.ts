@@ -5,6 +5,7 @@ export * from './selectors';
 
 export const {
   addNode,
+  playSimulation,
   setIsExpand,
   handleNodesChange,
   handleEdgesChange,
